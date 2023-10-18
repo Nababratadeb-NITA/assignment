@@ -42,9 +42,9 @@ const Navbar = ({ group, order, setGroup, setOrder }) => {
       </button>
       <div className={`dropdown-content ${isOpen ? "show" : ""}`}>
         <div className="manubtn">
-          <div className="submenu" onClick={() => toggleSubmenu(1)}>
-            <a href="#">Grouping</a>
-            <button className="dropbtn">
+          <div className="submenu">
+            <a>Grouping</a>
+            <button className="dropbtn" onClick={() => toggleSubmenu(1)}>
               {group}
               <RiArrowDownSLine />
             </button>
@@ -69,9 +69,9 @@ const Navbar = ({ group, order, setGroup, setOrder }) => {
               </button>
             </div>
           </div>
-          <div className="submenu" onClick={() => toggleSubmenu(2)}>
-            <a href="#">Ordering</a>
-            <button className="dropbtn">
+          <div className="submenu">
+            <a>Ordering</a>
+            <button className="dropbtn"  onClick={() => toggleSubmenu(2)}>
               {order}
               <RiArrowDownSLine />
             </button>
