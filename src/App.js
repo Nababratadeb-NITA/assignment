@@ -19,8 +19,8 @@ import { BiSignal2,BiSignal3,BiSignal4 } from "react-icons/bi";
 
 function App() {
   const [data, setData] = useState({});
-  const [group, setGroup] = useState(localStorage.getItem("group") || "status");
-  const [order, setOrder] = useState(localStorage.getItem('order') || "title");
+  const [group, setGroup] = useState(localStorage.getItem("group") || "user");
+  const [order, setOrder] = useState(localStorage.getItem('order') || "priority");
 
   useEffect(() => {
     fetch("https://api.quicksell.co/v1/internal/frontend-assignment")

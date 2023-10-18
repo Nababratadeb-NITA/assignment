@@ -28,6 +28,8 @@ const Navbar = ({ group, order, setGroup, setOrder }) => {
     const handleOutsideClick = (event) => {
       if (event.target.closest(".dropdown")) return;
       setIsOpen(false);
+      setSubgroup1Open(false);
+      setSubgroup2Open(false);
     };
 
     document.addEventListener("click", handleOutsideClick);
