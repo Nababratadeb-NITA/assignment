@@ -22,6 +22,8 @@ const Navbar = ({ group, order, setGroup, setOrder }) => {
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+    setSubgroup1Open(false);
+    setSubgroup2Open(false);
   };
 
   useEffect(() => {
