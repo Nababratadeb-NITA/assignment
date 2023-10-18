@@ -6,7 +6,19 @@ import { DiGhostSmall } from "react-icons/di";
 
 const Navbar = ({ group, order, setGroup, setOrder }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [submenusOpen, setSubmenusOpen] = useState({});
+  const [subgroup1Open, setSubgroup1Open] = useState(false);
+  const [subgroup2Open, setSubgroup2Open] = useState(false);
+
+  const toggleSubgroup1 = () => {
+    setSubgroup1Open(!subgroup1Open);
+    setSubgroup2Open(false);
+  
+  };
+
+  const toggleSubgroup2 = () => {
+    setSubgroup2Open(!subgroup2Open);
+    setSubgroup1Open(false);
+  };
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -24,15 +36,6 @@ const Navbar = ({ group, order, setGroup, setOrder }) => {
     };
   }, []);
 
-  const toggleSubmenu = (submenuNumber) => {
-    if (isOpen) {
-      setSubmenusOpen((prevState) => ({
-        ...prevState,
-        [submenuNumber]: !prevState[submenuNumber],
-      }));
-    }
-  };
-
   return (
     <div className="dropdown">
       <button onClick={toggleDropdown} className="dropbtn">
@@ -44,13 +47,13 @@ const Navbar = ({ group, order, setGroup, setOrder }) => {
         <div className="manubtn">
           <div className="submenu">
             <a>Grouping</a>
-            <button className="dropbtn" onClick={() => toggleSubmenu(1)}>
+            <button className="dropbtn" onClick={toggleSubgroup1}>
               {group}
               <RiArrowDownSLine />
             </button>
             <div>
               <button
-                className={`submenu-content ${submenusOpen[1] ? "show" : ""}`}
+                className={`submenu-content ${subgroup1Open ? "show" : ""}`}
               >
                 <div className="grpsbtn">
                   <button onClick={() => {setGroup("status"); setIsOpen(false)}} className="subbtn">
@@ -71,13 +74,13 @@ const Navbar = ({ group, order, setGroup, setOrder }) => {
           </div>
           <div className="submenu">
             <a>Ordering</a>
-            <button className="dropbtn"  onClick={() => toggleSubmenu(2)}>
+            <button className="dropbtn"  onClick={toggleSubgroup2}>
               {order}
               <RiArrowDownSLine />
             </button>
             <div>
               <button
-                className={`submenu-content ${submenusOpen[2] ? "show" : ""}`}
+                className={`submenu-content ${subgroup2Open ? "show" : ""}`}
               >
                 <div className="grpsbtn">
                   <button onClick={() => {setOrder("title"); setIsOpen(false)}} className="subbtn">
